@@ -33,7 +33,7 @@ import java.util.Scanner;
  вывода строк массива.
  */
 
-public class TaskB2P3 {
+public class TaskB21P3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter size of matrix -> ");
@@ -93,6 +93,18 @@ public class TaskB2P3 {
             int[] temp = matrix[count];
             matrix[count] = matrix[count+direct];
             matrix[count+direct] = temp;
+        }
+
+        direct = -1;
+        if (columnMin < column) {
+            direct = -direct;
+        }
+        for (int count = columnMin; count != column; count = count + direct) {
+            for (int rowC = 0; rowC < matrix.length; rowC++) {
+                int temp = matrix[rowC][count];
+                matrix[rowC][count] = matrix[rowC][count + direct];
+                matrix[rowC][count + direct] = temp;
+            }
         }
 
     }
